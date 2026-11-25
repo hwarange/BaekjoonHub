@@ -2,7 +2,7 @@
 N = int(input())
 
 # 상근이의 패
-cards = sorted(list(map(int, input().split())))
+cards = list(map(int, input().split()))
 card_keys = set(cards)
 
 card_dict = {key : 0 for key in card_keys}
@@ -13,8 +13,4 @@ for card in cards:
 M = int(input())
 
 card_count = map(int, input().split())
-for card in card_count:
-    if card in card_dict.keys():
-        print(card_dict.get(card), end=" ")
-    else:
-        print(0, end=" ")
+print(" ".join(str(card_dict.get(card, 0)) for card in card_count))
